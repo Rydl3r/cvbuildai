@@ -1,11 +1,11 @@
-"use client";
-import { toast } from "@/hooks/use-toast";
-import { api } from "@/lib/hono-rpc";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { InferRequestType, InferResponseType } from "hono";
+'use client';
+import { toast } from '@/hooks/use-toast';
+import { api } from '@/lib/hono-rpc';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { InferRequestType, InferResponseType } from 'hono';
 
 type ResponseType = InferResponseType<typeof api.document.create.$post>;
-type RequestType = InferRequestType<typeof api.document.create.$post>["json"];
+type RequestType = InferRequestType<typeof api.document.create.$post>['json'];
 
 const useCreateDocument = () => {
   const queryClient = useQueryClient();
@@ -16,14 +16,13 @@ const useCreateDocument = () => {
       return await response.json();
     },
     onSuccess: (response) => {
-      console.log(response);
-      queryClient.invalidateQueries({ queryKey: ["documents"] });
+      queryClient.invalidateQueries({ queryKey: ['documents'] });
     },
     onError: () => {
       toast({
-        title: "Error",
-        description: "Failed to create document",
-        variant: "destructive",
+        title: 'Error',
+        description: 'Failed to create document',
+        variant: 'destructive',
       });
     },
   });

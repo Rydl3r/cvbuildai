@@ -1,16 +1,16 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { useResumeContext } from "@/context/resume-info-provider";
-import useUpdateDocument from "@/features/document/use-update-document";
-import { toast } from "@/hooks/use-toast";
-import { AIChatSession } from "@/lib/google-ai-model";
-import { generateThumbnail } from "@/lib/helper";
-import { ResumeDataType } from "@/types/resume.type";
-import { Loader, Sparkles } from "lucide-react";
-import React, { useCallback, useState } from "react";
+'use client';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { useResumeContext } from '@/context/resume-info-provider';
+import useUpdateDocument from '@/features/document/use-update-document';
+import { toast } from '@/hooks/use-toast';
+import { AIChatSession } from '@/lib/google-ai-model';
+import { generateThumbnail } from '@/lib/helper';
+import { ResumeDataType } from '@/types/resume.type';
+import { Loader, Sparkles } from 'lucide-react';
+import React, { useCallback, useState } from 'react';
 
 interface GeneratesSummaryType {
   fresher: string;
@@ -64,16 +64,16 @@ const SummaryForm = (props: { handleNext: () => void }) => {
         {
           onSuccess: () => {
             toast({
-              title: "Success",
-              description: "Summary updated successfully",
+              title: 'Success',
+              description: 'Summary updated successfully',
             });
             handleNext();
           },
           onError() {
             toast({
-              title: "Error",
-              description: "Failed to update summary",
-              variant: "destructive",
+              title: 'Error',
+              description: 'Failed to update summary',
+              variant: 'destructive',
             });
           },
         }
@@ -87,15 +87,14 @@ const SummaryForm = (props: { handleNext: () => void }) => {
       const jobTitle = resumeInfo?.personalInfo?.jobTitle;
       if (!jobTitle) return;
       setLoading(true);
-      const PROMPT = prompt.replace("{jobTitle}", jobTitle);
+      const PROMPT = prompt.replace('{jobTitle}', jobTitle);
       const result = await AIChatSession.sendMessage(PROMPT);
       const responseText = await result.response.text();
-      console.log(responseText);
       setAiGeneratedSummary(JSON?.parse(responseText));
     } catch (error) {
       toast({
-        title: "Failed to generate summary",
-        variant: "destructive",
+        title: 'Failed to generate summary',
+        variant: 'destructive',
       });
     } finally {
       setLoading(false);
@@ -118,52 +117,60 @@ const SummaryForm = (props: { handleNext: () => void }) => {
 
   return (
     <div>
-      <div className="w-full">
-        <h2 className="font-bold text-lg">Summary</h2>
-        <p className="text-sm">Add summary for your resume</p>
+      <div className='w-full'>
+        <h2 className='font-bold text-lg'>Summary</h2>
+        <p className='text-sm'>Add summary for your resume</p>
       </div>
       <div>
         <form onSubmit={handleSubmit}>
-          <div className="flex items-end justify-between">
+          <div className='flex items-end justify-between'>
             <Label>Add Summary</Label>
             <Button
-              variant="outline"
-              type="button"
-              className="gap-1"
+              variant='outline'
+              type='button'
+              className='gap-1'
               disabled={loading || isPending}
               onClick={() => GenerateSummaryFromAI()}
             >
-              <Sparkles size="15px" className="text-purple-500" />
+              <Sparkles size='15px' className='text-purple-500' />
               Generate with AI
             </Button>
           </div>
           <Textarea
-            className="mt-5 min-h-36"
+            className='mt-5 min-h-36'
             required
-            value={resumeInfo?.summary || ""}
+            value={resumeInfo?.summary || ''}
             onChange={handleChange}
           />
 
           {aiGeneratedSummary && (
             <div>
-              <h5 className="font-semibold text-[15px] my-4">Suggestions</h5>
+              <h5 className='font-semibold text-[15px] my-4'>Suggestions</h5>
               {Object?.entries(aiGeneratedSummary)?.map(
-                ([experienceType, summary], index) => (
+                (
+                  [
+                    experienceType,
+                    {
+                      summary: [summary],
+                    },
+                  ],
+                  index
+                ) => (
                   <Card
-                    role="button"
+                    role='button'
                     key={index}
-                    className="my-4 bg-primary/5 shadow-none
+                    className='my-4 bg-primary/5 shadow-none
                             border-primary/30
-                          "
+                          '
                     onClick={() => handleSelect(summary)}
                   >
-                    <CardHeader className="py-2">
-                      <CardTitle className="font-semibold text-md">
+                    <CardHeader className='py-2'>
+                      <CardTitle className='font-semibold text-md'>
                         {experienceType?.charAt(0)?.toUpperCase() +
                           experienceType?.slice(1)}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="text-sm">
+                    <CardContent className='text-sm'>
                       <p>{summary}</p>
                     </CardContent>
                   </Card>
@@ -173,15 +180,15 @@ const SummaryForm = (props: { handleNext: () => void }) => {
           )}
 
           <Button
-            className="mt-4"
-            type="submit"
+            className='mt-4'
+            type='submit'
             disabled={
-              isPending || loading || resumeInfo?.status === "archived"
+              isPending || loading || resumeInfo?.status === 'archived'
                 ? true
                 : false
             }
           >
-            {isPending && <Loader size="15px" className="animate-spin" />}
+            {isPending && <Loader size='15px' className='animate-spin' />}
             Save Changes
           </Button>
         </form>

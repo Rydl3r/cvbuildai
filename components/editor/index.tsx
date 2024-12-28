@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   EditorProvider,
   Editor,
@@ -11,12 +11,12 @@ import {
   BtnNumberedList,
   BtnBulletList,
   BtnLink,
-} from "react-simple-wysiwyg";
-import { Label } from "../ui/label";
-import { Button } from "../ui/button";
-import { Loader, Sparkles } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
-import { AIChatSession } from "@/lib/google-ai-model";
+} from 'react-simple-wysiwyg';
+import { Label } from '../ui/label';
+import { Button } from '../ui/button';
+import { Loader, Sparkles } from 'lucide-react';
+import { toast } from '@/hooks/use-toast';
+import { AIChatSession } from '@/lib/google-ai-model';
 
 const PROMPT = `Given the job title "{jobTitle}",
  create 6-7 concise and personal bullet points in
@@ -35,30 +35,29 @@ const RichTextEditor = (props: {
   const { jobTitle, initialValue, onEditorChange } = props;
 
   const [loading, setLoading] = useState(false);
-  const [value, setValue] = useState(initialValue || "");
+  const [value, setValue] = useState(initialValue || '');
 
   const GenerateSummaryFromAI = async () => {
     try {
       if (!jobTitle) {
         toast({
-          title: "Must provide Job Postion",
-          variant: "destructive",
+          title: 'Must provide Job Postion',
+          variant: 'destructive',
         });
         return;
       }
       setLoading(true);
-      const prompt = PROMPT.replace("{jobTitle}", jobTitle);
+      const prompt = PROMPT.replace('{jobTitle}', jobTitle);
       const result = await AIChatSession.sendMessage(prompt);
       const responseText = await result.response.text();
       const validJsonArray = JSON.parse(`[${responseText}]`);
 
-      setValue(validJsonArray?.[0]);
-      onEditorChange(validJsonArray?.[0]);
+      setValue(validJsonArray?.[0]?.bulletPoints);
+      onEditorChange(validJsonArray?.[0]?.bulletPoints);
     } catch (error) {
-      console.log(error);
       toast({
-        title: "Failed to generate summary",
-        variant: "destructive",
+        title: 'Failed to generate summary',
+        variant: 'destructive',
       });
     } finally {
       setLoading(false);
@@ -68,22 +67,22 @@ const RichTextEditor = (props: {
   return (
     <div>
       <div
-        className="flex items-center 
-      justify-between my-2"
+        className='flex items-center 
+      justify-between my-2'
       >
         <Label>Work Summary</Label>
         <Button
-          variant="outline"
-          type="button"
-          className="gap-1"
+          variant='outline'
+          type='button'
+          className='gap-1'
           disabled={loading}
           onClick={() => GenerateSummaryFromAI()}
         >
           <>
-            <Sparkles size="15px" className="text-purple-500" />
+            <Sparkles size='15px' className='text-purple-500' />
             Generate with AI
           </>
-          {loading && <Loader size="13px" className="animate-spin" />}
+          {loading && <Loader size='13px' className='animate-spin' />}
         </Button>
       </div>
 
@@ -92,9 +91,9 @@ const RichTextEditor = (props: {
           value={value}
           containerProps={{
             style: {
-              resize: "vertical",
+              resize: 'vertical',
               lineHeight: 1.2,
-              fontSize: "13.5px",
+              fontSize: '13.5px',
             },
           }}
           onChange={(e) => {
