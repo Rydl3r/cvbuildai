@@ -19,8 +19,8 @@ const Download = (props: {
     const resumeElement = document.getElementById('resume-preview-id');
     if (!resumeElement) {
       toast({
-        title: 'Error',
-        description: 'Could not download',
+        title: 'Помилка',
+        description: 'Не вдалося завантажити',
         variant: 'destructive',
       });
       return;
@@ -52,8 +52,8 @@ const Download = (props: {
     } catch (error) {
       console.error('Error generating PDF:', error);
       toast({
-        title: 'Error',
-        description: 'Error generating PDF:',
+        title: 'Помилка',
+        description: 'Помилка при створенні PDF:',
         variant: 'destructive',
       });
     } finally {
@@ -73,7 +73,7 @@ const Download = (props: {
       <div className='flex items-center gap-1'>
         <DownloadCloud size='17px' />
         <span className='hidden lg:flex'>
-          {loading ? 'Generating PDF' : 'Download Resume'}
+          {loading ? 'Створення PDF' : 'Завантажити резюме'}
         </span>
       </div>
     </Button>

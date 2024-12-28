@@ -17,7 +17,7 @@ const ResumeTitle: FC<ResumeTitleProps> = ({
   status,
   onSave,
 }) => {
-  const [title, setTitle] = useState('Untitled Resume');
+  const [title, setTitle] = useState('Нове резюме');
 
   useEffect(() => {
     if (initialTitle) setTitle(initialTitle);

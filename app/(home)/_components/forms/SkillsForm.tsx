@@ -73,14 +73,14 @@ const SkillsForm = () => {
         {
           onSuccess: () => {
             toast({
-              title: 'Success',
-              description: 'Skills updated successfully',
+              title: 'Успіх',
+              description: 'Навички успішно оновлено',
             });
           },
           onError() {
             toast({
-              title: 'Error',
-              description: 'Failed to update skills',
+              title: 'Помилка',
+              description: 'Не вдалося оновити навички',
               variant: 'destructive',
             });
           },
@@ -93,8 +93,8 @@ const SkillsForm = () => {
   return (
     <div>
       <div className='w-full'>
-        <h2 className='font-bold text-lg'>Skills</h2>
-        <p className='text-sm'>Add your skills information</p>
+        <h2 className='font-bold text-lg'>Навички</h2>
+        <p className='text-sm'>Додайте інформацію про ваші навички</p>
       </div>
       <form onSubmit={handleSubmit}>
         <div
@@ -123,7 +123,7 @@ const SkillsForm = () => {
                 )}
 
                 <div className='flex-1'>
-                  <Label className='text-sm'>Name</Label>
+                  <Label className='text-sm'>Навичка</Label>
                   <Input
                     name='name'
                     placeholder=''
@@ -158,7 +158,7 @@ const SkillsForm = () => {
                   onClick={addNewSkill}
                 >
                   <Plus size='15px' />
-                  Add More Skills
+                  Додати ще
                 </Button>
               )}
             </div>
@@ -166,7 +166,7 @@ const SkillsForm = () => {
         </div>
         <Button className='mt-4' type='submit' disabled={isPending}>
           {isPending && <Loader size='15px' className='animate-spin' />}
-          Save & Done
+          Зберегти та завершити
         </Button>
       </form>
     </div>

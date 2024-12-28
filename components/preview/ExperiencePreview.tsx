@@ -22,7 +22,7 @@ const ExperiencePreview: FC<PropsType> = ({ resumeInfo, isLoading }) => {
       '
         style={{ color: themeColor }}
       >
-        Professional Experience
+        Професійний досвід
       </h5>
       <hr
         className='
@@ -53,7 +53,9 @@ const ExperiencePreview: FC<PropsType> = ({ resumeInfo, isLoading }) => {
               <span className='text-[13px]'>
                 {experience?.startDate}
                 {experience?.startDate && ' - '}
-                {experience?.currentlyWorking ? 'Present' : experience?.endDate}
+                {experience?.currentlyWorking
+                  ? 'Поточне місце роботи'
+                  : experience?.endDate}
               </span>
             </div>
             <div

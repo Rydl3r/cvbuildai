@@ -33,13 +33,13 @@ const PublicResume = () => {
             src='/images/pdf_icon.png'
             width={20}
             height={20}
-            alt='pdf logo'
+            alt='логотип pdf'
           />
           <h5
             className='text-[20px] px-1 text-gray-300
                   font-semibold'
           >
-            {resumeInfo?.title || 'Untitled Resume'}.pdf
+            {resumeInfo?.title || 'Нове резюме'}.pdf
           </h5>
         </div>
       </nav>

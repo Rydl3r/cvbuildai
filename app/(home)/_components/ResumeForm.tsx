@@ -45,7 +45,7 @@ const ResumeForm = () => {
               onClick={() => setActiveFormIndex(activeFormIndex - 1)}
             >
               <ArrowLeft size='16px' />
-              Previous
+              Назад
             </Button>
           )}
 
@@ -60,25 +60,25 @@ const ResumeForm = () => {
             }
             onClick={handleNext}
           >
-            Next
+            Далі
             <ArrowRight size='16px' />
           </Button>
         </div>
         <div className='px-5 py-3 pb-5'>
-          {/* {PersonalInfo Form} */}
+          {/* {Форма особистої інформації} */}
           {activeFormIndex === 1 && (
             <PersonalInfoForm handleNext={handleNext} />
           )}
 
           {activeFormIndex === 2 && <SummaryForm handleNext={handleNext} />}
 
-          {/* {Professional Exp.} */}
+          {/* {Професійний досвід} */}
           {activeFormIndex === 3 && <ExperienceForm handleNext={handleNext} />}
 
-          {/* {Eduncational Info} */}
+          {/* {Освітня інформація} */}
           {activeFormIndex === 4 && <EducationForm handleNext={handleNext} />}
 
-          {/* {Skills} */}
+          {/* {Навички} */}
           {activeFormIndex === 5 && <SkillsForm />}
         </div>
       </div>

@@ -1,7 +1,7 @@
-import React from "react";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { redirect } from "next/navigation";
-import NavBar from "@/components/nav-bar";
+import React from 'react';
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+import { redirect } from 'next/navigation';
+import NavBar from '@/components/nav-bar';
 
 const LandingLayout = async ({
   children,
@@ -12,7 +12,7 @@ const LandingLayout = async ({
   const isUserAuthenticated = await isAuthenticated();
 
   if (isUserAuthenticated) {
-    redirect("/dashboard");
+    redirect('/dashboard');
   }
   return (
     <div>

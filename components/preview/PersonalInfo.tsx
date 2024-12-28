@@ -25,26 +25,26 @@ const PersonalInfo: FC<PropsType> = ({ resumeInfo, isLoading }) => {
           color: themeColor,
         }}
       >
-        {resumeInfo?.personalInfo?.firstName || 'First Name'}{' '}
-        {resumeInfo?.personalInfo?.lastName || 'Last Name'}
+        {resumeInfo?.personalInfo?.firstName || "Ім'я"}{' '}
+        {resumeInfo?.personalInfo?.lastName || 'Прізвище'}
       </h2>
       <h5 className='text-center text-sm font-medium'>
-        {resumeInfo?.personalInfo?.jobTitle || 'Job Title'}
+        {resumeInfo?.personalInfo?.jobTitle || 'Назва посади'}
       </h5>
       <p
         className='text-center font-normal
             text-[13px]
           '
       >
-        {resumeInfo?.personalInfo?.address || 'House Address'}
+        {resumeInfo?.personalInfo?.address || 'Адреса'}
       </p>
 
       <div className='flex items-center justify-between pt-3'>
         <h5 className='font-normal text-[13px]'>
-          {resumeInfo?.personalInfo?.phone || 'Phone number'}
+          {resumeInfo?.personalInfo?.phone || 'Номер телефону'}
         </h5>
         <h5 className='font-normal text-[13px]'>
-          {resumeInfo?.personalInfo?.email || 'Email address'}
+          {resumeInfo?.personalInfo?.email || 'Електронна адреса'}
         </h5>
       </div>
 

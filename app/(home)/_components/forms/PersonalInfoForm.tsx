@@ -75,15 +75,15 @@ const PersonalInfoForm = (props: { handleNext: () => void }) => {
         {
           onSuccess: () => {
             toast({
-              title: 'Success',
-              description: 'PersonalInfo updated successfully',
+              title: 'Успіх',
+              description: 'Особисту інформацію успішно оновлено',
             });
             handleNext();
           },
           onError: () => {
             toast({
-              title: 'Error',
-              description: 'Failed to update personal information',
+              title: 'Помилка',
+              description: 'Не вдалося оновити особисту інформацію',
               variant: 'destructive',
             });
           },
@@ -100,8 +100,8 @@ const PersonalInfoForm = (props: { handleNext: () => void }) => {
   return (
     <div>
       <div className='w-full'>
-        <h2 className='font-bold text-lg'>Personal Information</h2>
-        <p className='text-sm'>Get Started with the personal information</p>
+        <h2 className='font-bold text-lg'>Особиста інформація</h2>
+        <p className='text-sm'>Почніть з особистої інформації</p>
       </div>
       <div>
         <form onSubmit={handleSubmit}>
@@ -110,7 +110,7 @@ const PersonalInfoForm = (props: { handleNext: () => void }) => {
           mt-5 gap-3'
           >
             <div>
-              <Label className='text-sm'>First Name</Label>
+              <Label className='text-sm'>Ім'я</Label>
               <Input
                 name='firstName'
                 required
@@ -121,7 +121,7 @@ const PersonalInfoForm = (props: { handleNext: () => void }) => {
               />
             </div>
             <div>
-              <Label className='text-sm'>Last Name</Label>
+              <Label className='text-sm'>Прізвище</Label>
               <Input
                 name='lastName'
                 required
@@ -132,7 +132,7 @@ const PersonalInfoForm = (props: { handleNext: () => void }) => {
               />
             </div>
             <div className='col-span-2'>
-              <Label className='text-sm'>Job Title</Label>
+              <Label className='text-sm'>Посада</Label>
               <Input
                 name='jobTitle'
                 required
@@ -143,7 +143,7 @@ const PersonalInfoForm = (props: { handleNext: () => void }) => {
               />
             </div>
             <div className='col-span-2'>
-              <Label className='text-sm'>Address</Label>
+              <Label className='text-sm'>Адреса</Label>
               <Input
                 name='address'
                 required
@@ -154,7 +154,7 @@ const PersonalInfoForm = (props: { handleNext: () => void }) => {
               />
             </div>
             <div className='col-span-2'>
-              <Label className='text-sm'>Phone number</Label>
+              <Label className='text-sm'>Номер телефону</Label>
               <Input
                 name='phone'
                 required
@@ -165,7 +165,7 @@ const PersonalInfoForm = (props: { handleNext: () => void }) => {
               />
             </div>
             <div className='col-span-2'>
-              <Label className='text-sm'>Email</Label>
+              <Label className='text-sm'>Електронна пошта</Label>
               <Input
                 name='email'
                 required
@@ -185,7 +185,7 @@ const PersonalInfoForm = (props: { handleNext: () => void }) => {
             }
           >
             {isPending && <Loader size='15px' className='animate-spin' />}
-            Save Changes
+            Зберегти зміни
           </Button>
         </form>
       </div>

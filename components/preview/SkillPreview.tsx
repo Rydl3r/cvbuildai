@@ -22,7 +22,7 @@ const SkillPreview: FC<PropsType> = ({ resumeInfo, isLoading }) => {
       '
         style={{ color: themeColor }}
       >
-        Skills
+        Навички
       </h5>
       <hr
         className='

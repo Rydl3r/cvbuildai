@@ -14,8 +14,7 @@ const SummaryPreview: FC<PropsType> = ({ resumeInfo, isLoading }) => {
         <Skeleton className='h-6 w-full' />
       ) : (
         <p className='text-[13px] !leading-4'>
-          {resumeInfo?.summary ||
-            'Enter a brief description of your profession baground.'}
+          {resumeInfo?.summary || 'Введіть короткий опис вашої професії.'}
         </p>
       )}
     </div>

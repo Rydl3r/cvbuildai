@@ -75,14 +75,14 @@ const ThemeColor = () => {
       {
         onSuccess: () => {
           toast({
-            title: 'Success',
-            description: 'Theme updated successfully',
+            title: 'Успіх',
+            description: 'Тему успішно оновлено',
           });
         },
         onError() {
           toast({
-            title: 'Error',
-            description: 'Failed to update theme',
+            title: 'Помилка',
+            description: 'Не вдалося оновити тему',
             variant: 'destructive',
           });
         },
@@ -102,7 +102,7 @@ const ThemeColor = () => {
         >
           <div className='flex items-center gap-1'>
             <Palette size='17px' />
-            <span className='hidden lg:flex'>Theme</span>
+            <span className='hidden lg:flex'>Колір</span>
           </div>
           <ChevronDown size='14px' />
         </Button>
@@ -117,7 +117,7 @@ const ThemeColor = () => {
           className='mb-2 
                 text-sm font-bold'
         >
-          Select Theme Color
+          Виберіть колір теми
         </h2>
 
         <div className='grid grid-cols-5 gap-3'>

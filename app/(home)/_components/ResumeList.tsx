@@ -25,7 +25,7 @@ const ResumeList = () => {
         <div className='flex flex-col items-center mx-5'>
           <button className='flex items-center gap-1' onClick={() => refetch()}>
             <RotateCw size='1em' />
-            <span>Retry</span>
+            <span>Спробувати ще раз</span>
           </button>
         </div>
       ) : (

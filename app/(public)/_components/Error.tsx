@@ -17,12 +17,12 @@ const Error = () => {
         '
       >
         <Frown size='80px' />
-        <h2 className='text-xl font-semibold'>You do not have access</h2>
-        <Button className='min-w-64'>Request for access</Button>
+        <h2 className='text-xl font-semibold'>Ви не маєте доступу</h2>
+        <Button className='min-w-64'>Запит на доступ</Button>
       </div>
 
       <div className='shrink-0 min-h-14 text-center'>
-        <p className='text-xs'>Company by </p>
+        <p className='text-xs'>Компанія від </p>
         <h5
           className='font-black 
          text-[20px] text-primary'

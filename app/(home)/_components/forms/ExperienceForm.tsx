@@ -97,15 +97,15 @@ const ExperienceForm = (props: { handleNext: () => void }) => {
         {
           onSuccess: () => {
             toast({
-              title: 'Success',
-              description: 'Experience updated successfully',
+              title: 'Успіх',
+              description: 'Досвід успішно оновлено',
             });
             handleNext();
           },
           onError() {
             toast({
-              title: 'Error',
-              description: 'Failed to update experience',
+              title: 'Помилка',
+              description: 'Не вдалося оновити досвід',
               variant: 'destructive',
             });
           },
@@ -118,8 +118,8 @@ const ExperienceForm = (props: { handleNext: () => void }) => {
   return (
     <div>
       <div className='w-full'>
-        <h2 className='font-bold text-lg'>Professional Experience</h2>
-        <p className='text-sm'>Add previous job experience</p>
+        <h2 className='font-bold text-lg'>Професійний досвід</h2>
+        <p className='text-sm'>Додайте попередній досвід роботи</p>
       </div>
       <form onSubmit={handleSubmit}>
         <div
@@ -150,7 +150,7 @@ const ExperienceForm = (props: { handleNext: () => void }) => {
                 )}
 
                 <div>
-                  <Label className='text-sm'>Position title</Label>
+                  <Label className='text-sm'>Посада</Label>
                   <Input
                     name='title'
                     placeholder=''
@@ -161,7 +161,7 @@ const ExperienceForm = (props: { handleNext: () => void }) => {
                 </div>
 
                 <div>
-                  <Label className='text-sm'>Company Name</Label>
+                  <Label className='text-sm'>Компанія</Label>
                   <Input
                     name='companyName'
                     placeholder=''
@@ -172,7 +172,7 @@ const ExperienceForm = (props: { handleNext: () => void }) => {
                 </div>
 
                 <div>
-                  <Label className='text-sm'>City</Label>
+                  <Label className='text-sm'>Місто</Label>
                   <Input
                     name='city'
                     placeholder=''
@@ -183,7 +183,7 @@ const ExperienceForm = (props: { handleNext: () => void }) => {
                 </div>
 
                 <div>
-                  <Label className='text-sm'>State</Label>
+                  <Label className='text-sm'>Область</Label>
                   <Input
                     name='state'
                     placeholder=''
@@ -194,7 +194,7 @@ const ExperienceForm = (props: { handleNext: () => void }) => {
                 </div>
 
                 <div>
-                  <Label className='text-sm'>Start Date</Label>
+                  <Label className='text-sm'>Дата початку</Label>
                   <Input
                     name='startDate'
                     type='date'
@@ -206,7 +206,7 @@ const ExperienceForm = (props: { handleNext: () => void }) => {
                 </div>
 
                 <div>
-                  <Label className='text-sm'>End Date</Label>
+                  <Label className='text-sm'>Дата закінчення</Label>
                   <Input
                     name='endDate'
                     type='date'
@@ -239,7 +239,7 @@ const ExperienceForm = (props: { handleNext: () => void }) => {
                     onClick={addNewExperience}
                   >
                     <Plus size='15px' />
-                    Add More Experience
+                    Додати ще
                   </Button>
                 )}
             </div>
@@ -247,7 +247,7 @@ const ExperienceForm = (props: { handleNext: () => void }) => {
         </div>
         <Button className='mt-4' type='submit' disabled={isPending}>
           {isPending && <Loader size='15px' className='animate-spin' />}
-          Save Changes
+          Зберегти зміни
         </Button>
       </form>
     </div>

@@ -10,7 +10,7 @@ const AddResume = () => {
   const onCreate = useCallback(() => {
     mutate(
       {
-        title: 'Untitled Resume',
+        title: 'Нове резюме',
       },
       {
         onSuccess: (response) => {
@@ -47,7 +47,7 @@ const AddResume = () => {
             className='text-sm font-semibold
           '
           >
-            Blank Resume
+            Створити нове
           </p>
         </div>
       </div>
@@ -62,7 +62,7 @@ const AddResume = () => {
           <Loader size='35px' className='animate-spin' />
           <div className='flex items-center gap-2'>
             <FileText />
-            Creating Blank Resume...
+            Створення нового резюме...
           </div>
         </div>
       )}

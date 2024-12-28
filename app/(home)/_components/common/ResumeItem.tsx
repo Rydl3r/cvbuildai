@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import { useRouter } from 'next/navigation';
 import { Dot, EllipsisVertical, FileText, Globe, Lock } from 'lucide-react';
 import Image from 'next/image';
+import { uk } from 'date-fns/locale';
 
 interface PropType {
   documentId: string;
@@ -25,7 +26,7 @@ const ResumeItem: FC<PropType> = ({
 
   const docDate = useMemo(() => {
     if (!updatedAt) return null;
-    const formattedDate = format(updatedAt, 'MMM dd,yyyy');
+    const formattedDate = format(updatedAt, 'dd.MM.yyyy', { locale: uk });
     return formattedDate;
   }, [updatedAt]);
 
@@ -107,9 +108,6 @@ const ResumeItem: FC<PropType> = ({
             >
               {title}
             </h5>
-            <button className='text-muted-foreground'>
-              <EllipsisVertical size='20px' />
-            </button>
           </div>
           <div
             className='flex items-center
@@ -125,12 +123,12 @@ const ResumeItem: FC<PropType> = ({
               {status === 'private' ? (
                 <>
                   <Lock size='12px' />
-                  Private
+                  Приватне
                 </>
               ) : (
                 <>
                   <Globe size='12px' className='text-primary' />
-                  Public
+                  Публічне
                 </>
               )}
             </span>

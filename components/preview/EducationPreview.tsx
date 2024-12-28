@@ -22,7 +22,7 @@ const EducationPreview: FC<PropsType> = ({ resumeInfo, isLoading }) => {
       '
         style={{ color: themeColor }}
       >
-        Education
+        Освіта
       </h5>
       <hr
         className='
@@ -42,7 +42,7 @@ const EducationPreview: FC<PropsType> = ({ resumeInfo, isLoading }) => {
             <div className='flex items-start justify-between'>
               <h5 className='text-[13px]'>
                 {education?.degree}
-                {education?.degree && education?.major && ' in '}
+                {education?.degree && education?.major && ' в '}
                 {education?.major}
               </h5>
               <span className='text-[13px]'>

@@ -26,19 +26,19 @@ const PreviewResume = (props: {
         borderTop: `13px solid ${resumeInfo?.themeColor}`,
       }}
     >
-      {/* {Personnal Info} */}
+      {/* {Особиста інформація} */}
       <PersonalInfo isLoading={isLoading} resumeInfo={resumeInfo} />
 
-      {/* {Summary} */}
+      {/* {Резюме} */}
       <SummaryPreview isLoading={isLoading} resumeInfo={resumeInfo} />
 
-      {/* {Professional Exp} */}
+      {/* {Професійний досвід} */}
       <ExperiencePreview isLoading={isLoading} resumeInfo={resumeInfo} />
 
-      {/* {Educational Info} */}
+      {/* {Освітня інформація} */}
       <EducationPreview isLoading={isLoading} resumeInfo={resumeInfo} />
 
-      {/* {Skills} */}
+      {/* {Навички} */}
       <SkillPreview isLoading={isLoading} resumeInfo={resumeInfo} />
     </div>
   );

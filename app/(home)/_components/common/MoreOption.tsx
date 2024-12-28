@@ -34,14 +34,14 @@ const MoreOption = () => {
             });
             router.replace(`/dashboard/`);
             toast({
-              title: 'Success',
-              description: `Moved to trash successfully`,
+              title: 'Успіх',
+              description: `Успішно переміщено до кошика`,
             });
           },
           onError() {
             toast({
-              title: 'Error',
-              description: 'Failed to update status',
+              title: 'Помилка',
+              description: 'Не вдалося оновити статус',
               variant: 'destructive',
             });
           },
@@ -74,7 +74,7 @@ const MoreOption = () => {
                 onClick={() => handleClick('private')}
               >
                 <Redo size='15px' />
-                Retore resume
+                Відновити резюме
                 {isPending && <Loader size='15px' className='animate-spin' />}
               </Button>
             ) : (
@@ -85,7 +85,7 @@ const MoreOption = () => {
                 onClick={() => handleClick('archived')}
               >
                 <Trash2 size='15px' />
-                Move to Trash
+                Перемістити до кошика
                 {isPending && <Loader size='15px' className='animate-spin' />}
               </Button>
             )}

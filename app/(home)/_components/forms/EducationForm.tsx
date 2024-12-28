@@ -84,15 +84,15 @@ const EducationForm = (props: { handleNext: () => void }) => {
         {
           onSuccess: () => {
             toast({
-              title: 'Success',
-              description: 'Education updated successfully',
+              title: 'Успіх',
+              description: 'Освіту успішно оновлено',
             });
             handleNext();
           },
           onError() {
             toast({
-              title: 'Error',
-              description: 'Failed to update education',
+              title: 'Помилка',
+              description: 'Не вдалося оновити освіту',
               variant: 'destructive',
             });
           },
@@ -105,8 +105,8 @@ const EducationForm = (props: { handleNext: () => void }) => {
   return (
     <div>
       <div className='w-full'>
-        <h2 className='font-bold text-lg'>Education</h2>
-        <p className='text-sm'>Add your education details</p>
+        <h2 className='font-bold text-lg'>Освіта</h2>
+        <p className='text-sm'>Додайте інформацію про вашу освіту</p>
       </div>
       <form onSubmit={handleSubmit}>
         <div
@@ -138,7 +138,7 @@ const EducationForm = (props: { handleNext: () => void }) => {
                 )}
 
                 <div className='col-span-2'>
-                  <Label className='text-sm'>University Name</Label>
+                  <Label className='text-sm'>Назва університету</Label>
                   <Input
                     name='universityName'
                     placeholder=''
@@ -148,7 +148,7 @@ const EducationForm = (props: { handleNext: () => void }) => {
                   />
                 </div>
                 <div>
-                  <Label className='text-sm'>Degree</Label>
+                  <Label className='text-sm'>Ступінь</Label>
                   <Input
                     name='degree'
                     placeholder=''
@@ -158,7 +158,7 @@ const EducationForm = (props: { handleNext: () => void }) => {
                   />
                 </div>
                 <div>
-                  <Label className='text-sm'>Major</Label>
+                  <Label className='text-sm'>Спеціальність</Label>
                   <Input
                     name='major'
                     placeholder=''
@@ -168,7 +168,7 @@ const EducationForm = (props: { handleNext: () => void }) => {
                   />
                 </div>
                 <div>
-                  <Label className='text-sm'>Start Date</Label>
+                  <Label className='text-sm'>Дата початку</Label>
                   <Input
                     name='startDate'
                     type='date'
@@ -179,7 +179,7 @@ const EducationForm = (props: { handleNext: () => void }) => {
                   />
                 </div>
                 <div>
-                  <Label className='text-sm'>End Date</Label>
+                  <Label className='text-sm'>Дата закінчення</Label>
                   <Input
                     name='endDate'
                     type='date'
@@ -190,7 +190,7 @@ const EducationForm = (props: { handleNext: () => void }) => {
                   />
                 </div>
                 <div className='col-span-2 mt-1'>
-                  <Label className='text-sm'>Description</Label>
+                  <Label className='text-sm'>Опис</Label>
                   <Textarea
                     name='description'
                     placeholder=''
@@ -212,7 +212,7 @@ const EducationForm = (props: { handleNext: () => void }) => {
                     onClick={addNewEducation}
                   >
                     <Plus size='15px' />
-                    Add More Education
+                    Додати ще
                   </Button>
                 )}
             </div>
@@ -220,7 +220,7 @@ const EducationForm = (props: { handleNext: () => void }) => {
         </div>
         <Button className='mt-4' type='submit' disabled={isPending}>
           {isPending && <Loader size='15px' className='animate-spin' />}
-          Save Changes
+          Зберегти зміни
         </Button>
       </form>
     </div>

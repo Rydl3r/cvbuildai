@@ -10,23 +10,22 @@ export default function Home() {
         <div className='w-full flex flex-col items-center justify-center py-10 max-w-4xl mx-auto'>
           <div className='flex flex-col mt-5 items-center text-center'>
             <h1 className='text-6xl font-black'>
-              <p>Get dream jobs with our</p>
+              <p>Отримайте роботу мрії з нашим резюме-білдером, який працює</p>
               <p>
                 <span className='bg-gradient-to-r from-primary via-purple-300 to-primary bg-clip-text text-transparent animate-sparkle'>
-                  AI Powered
+                  на основі штучного інтелекту
                 </span>
-                {'  '}
-                resume builder
               </p>
             </h1>
             <p className=' block text-xl mt-3 font-medium text-black/70'>
-              Build a professional,resume with our free builder, and share it
-              with, shareable link.
+              Створіть професійне резюме за допомогою нашого безкоштовного
+              білдера та поділіться ним за допомогою посилання для спільного
+              доступу.
             </p>
             <br />
             <div className='flex items-center gap-2'>
               <Button className='h-12 text-base font-medium min-w-32' asChild>
-                <RegisterLink>Get Started</RegisterLink>
+                <RegisterLink>Почати</RegisterLink>
               </Button>
             </div>
           </div>
@@ -37,7 +36,7 @@ export default function Home() {
             <div className='relative w-full h-full rounded-md'>
               <Image
                 src='/images/board-img.png'
-                alt='App dashboard'
+                alt='Дашборд'
                 fill
                 className='object-contain w-full h-full rounded-md'
               />

@@ -17,7 +17,7 @@ const TopSection = () => {
 
   const handleTitle = useCallback(
     (title: string) => {
-      if (title === 'Untitled Resume' && !title) return;
+      if (title === 'Нове резюме' && !title) return;
 
       if (resumeInfo) {
         onUpdate({
@@ -33,14 +33,14 @@ const TopSection = () => {
         {
           onSuccess: () => {
             toast({
-              title: 'Success',
-              description: 'Title updated successfully',
+              title: 'Успіх',
+              description: 'Назву успішно оновлено',
             });
           },
           onError: () => {
             toast({
-              title: 'Error',
-              description: 'Failed to update the title',
+              title: 'Помилка',
+              description: 'Не вдалося оновити назву',
               variant: 'destructive',
             });
           },
@@ -63,7 +63,7 @@ const TopSection = () => {
             '
         >
           <AlertCircle size='16px' />
-          This resume is in the trash bin
+          Це резюме знаходиться в кошику
         </div>
       )}
       <div

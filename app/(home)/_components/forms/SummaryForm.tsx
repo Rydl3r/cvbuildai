@@ -18,13 +18,12 @@ interface GeneratesSummaryType {
   experienced: string;
 }
 
-const prompt = `Job Title: {jobTitle}. Based on the job title, please generate concise 
-and complete summaries for my resume in JSON format, incorporating the following experience
-levels: fresher, mid, and experienced. Each summary should be limited to 3 to 4 lines,
-reflecting a personal tone and showcasing specific relevant programming languages, technologies,
-frameworks, and methodologies without any placeholders or gaps. Ensure that the summaries are
-engaging and tailored to highlight unique strengths, aspirations, and contributions to collaborative
-projects, demonstrating a clear understanding of the role and industry standards.`;
+const prompt = `Назва посади: {jobTitle}. На основі назви посади, будь ласка, створіть стислі 
+та повні резюме для мого CV у форматі JSON, враховуючи такі рівні досвіду: початківець, середній та досвідчений. 
+Кожне резюме повинно бути обмежене 3-4 рядками, відображаючи особистий тон та демонструючи конкретні відповідні 
+мови програмування, технології, фреймворки та методології без будь-яких заповнювачів або прогалин. 
+Переконайтеся, що резюме є захоплюючими та адаптованими для підкреслення унікальних сильних сторін, 
+прагнень та внесків у спільні проекти, демонструючи чітке розуміння ролі та галузевих стандартів.`;
 
 const SummaryForm = (props: { handleNext: () => void }) => {
   const { handleNext } = props;
@@ -64,15 +63,15 @@ const SummaryForm = (props: { handleNext: () => void }) => {
         {
           onSuccess: () => {
             toast({
-              title: 'Success',
-              description: 'Summary updated successfully',
+              title: 'Успіх',
+              description: 'Резюме успішно оновлено',
             });
             handleNext();
           },
           onError() {
             toast({
-              title: 'Error',
-              description: 'Failed to update summary',
+              title: 'Помилка',
+              description: 'Не вдалося оновити резюме',
               variant: 'destructive',
             });
           },
@@ -93,7 +92,7 @@ const SummaryForm = (props: { handleNext: () => void }) => {
       setAiGeneratedSummary(JSON?.parse(responseText));
     } catch (error) {
       toast({
-        title: 'Failed to generate summary',
+        title: 'Не вдалося створити резюме',
         variant: 'destructive',
       });
     } finally {
@@ -118,13 +117,13 @@ const SummaryForm = (props: { handleNext: () => void }) => {
   return (
     <div>
       <div className='w-full'>
-        <h2 className='font-bold text-lg'>Summary</h2>
-        <p className='text-sm'>Add summary for your resume</p>
+        <h2 className='font-bold text-lg'>Опис</h2>
+        <p className='text-sm'>Додайте опис для вашого резюме</p>
       </div>
       <div>
         <form onSubmit={handleSubmit}>
           <div className='flex items-end justify-between'>
-            <Label>Add Summary</Label>
+            <Label>Додати опис</Label>
             <Button
               variant='outline'
               type='button'
@@ -133,7 +132,7 @@ const SummaryForm = (props: { handleNext: () => void }) => {
               onClick={() => GenerateSummaryFromAI()}
             >
               <Sparkles size='15px' className='text-purple-500' />
-              Generate with AI
+              Згенерувати за допомогою AI
             </Button>
           </div>
           <Textarea
@@ -145,7 +144,7 @@ const SummaryForm = (props: { handleNext: () => void }) => {
 
           {aiGeneratedSummary && (
             <div>
-              <h5 className='font-semibold text-[15px] my-4'>Suggestions</h5>
+              <h5 className='font-semibold text-[15px] my-4'>Пропозиції</h5>
               {Object?.entries(aiGeneratedSummary)?.map(
                 (
                   [
@@ -189,7 +188,7 @@ const SummaryForm = (props: { handleNext: () => void }) => {
             }
           >
             {isPending && <Loader size='15px' className='animate-spin' />}
-            Save Changes
+            Зберегти зміни
           </Button>
         </form>
       </div>

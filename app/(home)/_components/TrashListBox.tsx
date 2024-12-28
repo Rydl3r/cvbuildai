@@ -11,6 +11,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import useGetDocuments from '@/features/document/use-get-document';
 import useRestoreDocument from '@/features/document/use-restore-document';
 import { format } from 'date-fns';
+import { uk } from 'date-fns/locale';
 import { Dot, FileText, Undo, Loader, Search, Trash2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
@@ -62,7 +63,7 @@ const TrashListBox = () => {
           variant='outline'
         >
           <Trash2 size='15px' />
-          <span>All Trash</span>
+          <span>Видалені</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -89,7 +90,7 @@ const TrashListBox = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className='h-7 px-2 bg-secondary '
-                placeholder='Filter by resume title'
+                placeholder='Фільтрувати за назвою'
               />
             </div>
             <div className='mt-2 px-1 pb-1'>
@@ -98,7 +99,7 @@ const TrashListBox = () => {
             text-center text-muted-foreground
             '
               >
-                No documents found
+                Документи не знайдено
               </p>
 
               {filteredDocuments?.map((doc) => (
@@ -133,7 +134,9 @@ const TrashListBox = () => {
                         <Dot size='15px' />
                         <span className='items-center'>
                           {doc.updatedAt &&
-                            format(doc.updatedAt, 'MMM dd, yyyy')}
+                            format(doc.updatedAt, 'dd.MM.yyyy', {
+                              locale: uk,
+                            })}
                         </span>
                       </div>
                     </div>

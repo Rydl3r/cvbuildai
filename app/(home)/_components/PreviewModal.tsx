@@ -29,7 +29,7 @@ const PreviewModal = () => {
           >
             <div className='flex items-center gap-1'>
               <Eye size='17px' />
-              <span className='hidden  lg:flex'>Preview</span>
+              <span className='hidden  lg:flex'>Попередній перегляд</span>
             </div>
           </Button>
         </DialogTrigger>

@@ -18,14 +18,13 @@ import { Loader, Sparkles } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import { AIChatSession } from '@/lib/google-ai-model';
 
-const PROMPT = `Given the job title "{jobTitle}",
- create 6-7 concise and personal bullet points in
-  HTML stringify format that highlight my key
-  skills, relevant technologies, and significant
-   contributions in that role. Do not include
-    the job title itself in the output. Provide
-     only the bullet points inside an unordered
-     list.`;
+const PROMPT = `Враховуючи назву посади "{jobTitle}",
+ створіть 6-7 коротких і особистих пунктів у
+  форматі HTML, які підкреслюють мої ключові
+  навички, відповідні технології та значні
+   внески в цій ролі. Не включайте саму назву
+    посади у вихідні дані. Надайте лише пункти
+     у вигляді ненумерованого списку <li>.`;
 
 const RichTextEditor = (props: {
   jobTitle: string | null;
@@ -41,7 +40,7 @@ const RichTextEditor = (props: {
     try {
       if (!jobTitle) {
         toast({
-          title: 'Must provide Job Postion',
+          title: 'Необхідно вказати посаду',
           variant: 'destructive',
         });
         return;
@@ -56,7 +55,7 @@ const RichTextEditor = (props: {
       onEditorChange(validJsonArray?.[0]?.bulletPoints);
     } catch (error) {
       toast({
-        title: 'Failed to generate summary',
+        title: 'Не вдалося згенерувати резюме',
         variant: 'destructive',
       });
     } finally {
@@ -70,7 +69,7 @@ const RichTextEditor = (props: {
         className='flex items-center 
       justify-between my-2'
       >
-        <Label>Work Summary</Label>
+        <Label>Опис досвіду</Label>
         <Button
           variant='outline'
           type='button'
@@ -80,7 +79,7 @@ const RichTextEditor = (props: {
         >
           <>
             <Sparkles size='15px' className='text-purple-500' />
-            Generate with AI
+            Згенерувати за допомогою AI
           </>
           {loading && <Loader size='13px' className='animate-spin' />}
         </Button>

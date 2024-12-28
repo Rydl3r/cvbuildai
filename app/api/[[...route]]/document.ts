@@ -255,7 +255,7 @@ const documentRoute = new Hono()
         return c.json(
           {
             success: 'ok',
-            message: 'Updated successfully',
+            message: 'Оновлено успішно',
           },
           { status: 200 }
         );
@@ -263,7 +263,7 @@ const documentRoute = new Hono()
         return c.json(
           {
             success: false,
-            message: 'Failed to update document',
+            message: 'Не вдалося оновити документ',
             error: error,
           },
           500
@@ -289,12 +289,12 @@ const documentRoute = new Hono()
         const { documentId, status } = c.req.valid('json');
 
         if (!documentId) {
-          return c.json({ message: 'DocumentId must provided' }, 400);
+          return c.json({ message: "DocumentId обов'язковий" }, 400);
         }
 
         if (status !== 'archived') {
           return c.json(
-            { message: 'Status must be archived before restore' },
+            { message: 'Статус повинен бути "archived" перед відновленням' },
             400
           );
         }
@@ -314,13 +314,13 @@ const documentRoute = new Hono()
           .returning();
 
         if (!documentData) {
-          return c.json({ message: 'Document not found' }, 404);
+          return c.json({ message: 'Документ не знайдено' }, 404);
         }
 
         return c.json(
           {
             success: 'ok',
-            message: 'Updated successfully',
+            message: 'Оновлено успішно',
             data: documentData,
           },
           { status: 200 }
@@ -329,7 +329,7 @@ const documentRoute = new Hono()
         return c.json(
           {
             success: false,
-            message: 'Failed to retore document',
+            message: 'Не вдалося відновити документ',
             error: error,
           },
           500
@@ -359,7 +359,7 @@ const documentRoute = new Hono()
       return c.json(
         {
           success: false,
-          message: 'Failed to fetch documents',
+          message: 'Не вдалося отримати документи',
           error: error,
         },
         500
@@ -401,7 +401,7 @@ const documentRoute = new Hono()
         return c.json(
           {
             success: false,
-            message: 'Failed to fetch documents',
+            message: 'Не вдалося отримати документи',
             error: error,
           },
           500
@@ -437,7 +437,7 @@ const documentRoute = new Hono()
           return c.json(
             {
               error: true,
-              message: 'unauthorized',
+              message: 'не авторизовано',
             },
             401
           );
@@ -450,7 +450,7 @@ const documentRoute = new Hono()
         return c.json(
           {
             success: false,
-            message: 'Failed to fetch document',
+            message: 'Не вдалося отримати документ',
             error: error,
           },
           500
@@ -479,7 +479,7 @@ const documentRoute = new Hono()
       return c.json(
         {
           success: false,
-          message: 'Failed to fetch documents',
+          message: 'Не вдалося отримати документи',
           error: error,
         },
         500

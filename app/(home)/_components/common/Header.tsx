@@ -53,7 +53,7 @@ const Header = () => {
                text-black/50
                dark:text-primary-foreground'
               >
-                Hi,
+                Привіт,
               </span>
               <h5
                 className='font-bold text-black 
@@ -71,18 +71,18 @@ const Header = () => {
               <Button variant='outline' size='icon'>
                 <Sun className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
                 <Moon className='absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
-                <span className='sr-only'>Toggle theme</span>
+                <span className='sr-only'>Переключити тему</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align='end'>
               <DropdownMenuItem onClick={() => setTheme('light')}>
-                Light
+                Світла
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme('dark')}>
-                Dark
+                Темна
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme('system')}>
-                System
+                Системна
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -113,7 +113,7 @@ const Header = () => {
                       asChild
                       className='!text-red-500 !cursor-pointer font-medium'
                     >
-                      <LogoutLink>Log out</LogoutLink>
+                      <LogoutLink>Вийти</LogoutLink>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>

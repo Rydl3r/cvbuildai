@@ -53,14 +53,14 @@ const Share = () => {
               status: status,
             });
             toast({
-              title: 'Success',
-              description: `Status set to ${status} successfully`,
+              title: 'Успіх',
+              description: `Статус успішно змінено на ${status}`,
             });
           },
           onError() {
             toast({
-              title: 'Error',
-              description: 'Failed to update status',
+              title: 'Помилка',
+              description: 'Не вдалося оновити статус',
               variant: 'destructive',
             });
           },
@@ -87,7 +87,7 @@ const Share = () => {
         >
           <div className='flex items-center gap-1'>
             <ShareIcon size='17px' />
-            <span className='flex'>Share</span>
+            <span className='flex'>Поділитись</span>
           </div>
           <ChevronDown size='14px' />
         </Button>
@@ -107,7 +107,7 @@ const Share = () => {
             >
               <Globe size='15px' className='text-primary animate-pulse' />
               <p className='font-medium text-xs text-primary'>
-                This resume is shareable, copy the link!
+                Цим резюме можна поділитися, просто скопіюйте посилання!
               </p>
             </div>
             <div className='flex items-center'>
@@ -141,7 +141,7 @@ const Share = () => {
               disabled={isPending}
             >
               {isPending && <Loader size='15px' className='animate-spin' />}
-              Private
+              Зробити приватним
             </Button>
           </div>
         ) : (
@@ -151,9 +151,9 @@ const Share = () => {
           >
             <Globe size='40px' />
             <div className='text-center mb-1'>
-              <h5 className='font-semibold text-sm'>Set to Public</h5>
+              <h5 className='font-semibold text-sm'>Зробити публічним</h5>
               <p className='text-xs text-muted-foreground'>
-                To share it with others, you need to make it public.
+                Щоб поділитися резюме з іншими, потрібно зробити його публічним.
               </p>
             </div>
             <Button
@@ -166,7 +166,7 @@ const Share = () => {
               onClick={() => handleClick('public')}
             >
               {isPending && <Loader size='15px' className='animate-spin' />}
-              Public
+              Зробити публічним
             </Button>
           </div>
         )}
