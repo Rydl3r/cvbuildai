@@ -1,8 +1,8 @@
-"use client";
-import useGetDocuments from "@/features/document/use-get-document";
-import { Loader, RotateCw } from "lucide-react";
-import React, { Fragment } from "react";
-import ResumeItem from "./common/ResumeItem";
+'use client';
+import useGetDocuments from '@/features/document/use-get-document';
+import { Loader, RotateCw } from 'lucide-react';
+import React, { Fragment } from 'react';
+import ResumeItem from './common/ResumeItem';
 
 const ResumeList = () => {
   const { data, isLoading, isError, refetch } = useGetDocuments();
@@ -11,20 +11,20 @@ const ResumeList = () => {
     <Fragment>
       {isLoading ? (
         <div
-          className="
-    flex items-center mx-5"
+          className='
+    flex items-center mx-5'
         >
           <Loader
-            className="animate-spin text-black
+            className='animate-spin text-black
      dark:text-white
      size-10
-     "
+     '
           />
         </div>
       ) : isError ? (
-        <div className="flex flex-col items-center mx-5">
-          <button className="flex items-center gap-1" onClick={() => refetch()}>
-            <RotateCw size="1em" />
+        <div className='flex flex-col items-center mx-5'>
+          <button className='flex items-center gap-1' onClick={() => refetch()}>
+            <RotateCw size='1em' />
             <span>Retry</span>
           </button>
         </div>

@@ -1,40 +1,40 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { useResumeContext } from "@/context/resume-info-provider";
-import useUpdateDocument from "@/features/document/use-update-document";
-import { INITIAL_THEME_COLOR } from "@/constant/colors";
+import React, { useCallback, useEffect, useState } from 'react';
+import { useResumeContext } from '@/context/resume-info-provider';
+import useUpdateDocument from '@/features/document/use-update-document';
+import { INITIAL_THEME_COLOR } from '@/constant/colors';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
-import { Palette, ChevronDown } from "lucide-react";
-import { generateThumbnail } from "@/lib/helper";
-import { toast } from "@/hooks/use-toast";
-import useDebounce from "@/hooks/use-debounce";
+} from '@/components/ui/popover';
+import { Button } from '@/components/ui/button';
+import { Palette, ChevronDown } from 'lucide-react';
+import { generateThumbnail } from '@/lib/helper';
+import { toast } from '@/hooks/use-toast';
+import useDebounce from '@/hooks/use-debounce';
 
 const ThemeColor = () => {
   const colors = [
-    "#FF6F61", // Warm Coral
-    "#33B679", // Fresh Green
-    "#4B9CD3", // Soft Blue
-    "#FF6F91", // Bright Magenta
-    "#9B59B6", // Rich Purple
-    "#1ABC9C", // Mint Green
-    "#FF8C00", // Tangerine Orange
-    "#B2D300", // Vibrant Lime
-    "#8E44AD", // Deep Violet
-    "#FF4F81", // Hot Pink
-    "#2ECC71", // Light Jade
-    "#3498DB", // Calm Sky Blue
-    "#A3D550", // Neon Yellow-Green
-    "#00BFFF", // Cool Azure
-    "#FF6F61", // Coral Orange
-    "#8E44AD", // Royal Blue
-    "#2ECC71", // Electric Green
-    "#5B2C6F", // Indigo Purple
-    "#FF4F81", // Crimson Red
-    "#2980B9", // Cobalt Blue
+    '#FF6F61', // Warm Coral
+    '#33B679', // Fresh Green
+    '#4B9CD3', // Soft Blue
+    '#FF6F91', // Bright Magenta
+    '#9B59B6', // Rich Purple
+    '#1ABC9C', // Mint Green
+    '#FF8C00', // Tangerine Orange
+    '#B2D300', // Vibrant Lime
+    '#8E44AD', // Deep Violet
+    '#FF4F81', // Hot Pink
+    '#2ECC71', // Light Jade
+    '#3498DB', // Calm Sky Blue
+    '#A3D550', // Neon Yellow-Green
+    '#00BFFF', // Cool Azure
+    '#FF6F61', // Coral Orange
+    '#8E44AD', // Royal Blue
+    '#2ECC71', // Electric Green
+    '#5B2C6F', // Indigo Purple
+    '#FF4F81', // Crimson Red
+    '#2980B9', // Cobalt Blue
   ];
 
   const { resumeInfo, onUpdate } = useResumeContext();
@@ -75,15 +75,15 @@ const ThemeColor = () => {
       {
         onSuccess: () => {
           toast({
-            title: "Success",
-            description: "Theme updated successfully",
+            title: 'Success',
+            description: 'Theme updated successfully',
           });
         },
         onError() {
           toast({
-            title: "Error",
-            description: "Failed to update theme",
-            variant: "destructive",
+            title: 'Error',
+            description: 'Failed to update theme',
+            variant: 'destructive',
           });
         },
       }
@@ -94,42 +94,42 @@ const ThemeColor = () => {
     <Popover>
       <PopoverTrigger asChild>
         <Button
-          disabled={resumeInfo?.status === "archived" ? true : false}
-          variant="secondary"
-          className="bg-white border gap-1
+          disabled={resumeInfo?.status === 'archived' ? true : false}
+          variant='secondary'
+          className='bg-white border gap-1
                    dark:bg-gray-800 !p-2
-                    lg:w-auto lg:p-4"
+                    lg:w-auto lg:p-4'
         >
-          <div className="flex items-center gap-1">
-            <Palette size="17px" />
-            <span className="hidden lg:flex">Theme</span>
+          <div className='flex items-center gap-1'>
+            <Palette size='17px' />
+            <span className='hidden lg:flex'>Theme</span>
           </div>
-          <ChevronDown size="14px" />
+          <ChevronDown size='14px' />
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        align="start"
-        className="
+        align='start'
+        className='
           bg-background
-          "
+          '
       >
         <h2
-          className="mb-2 
-                text-sm font-bold"
+          className='mb-2 
+                text-sm font-bold'
         >
           Select Theme Color
         </h2>
 
-        <div className="grid grid-cols-5 gap-3">
+        <div className='grid grid-cols-5 gap-3'>
           {colors.map((item: string, index: number) => (
             <div
-              role="button"
+              role='button'
               key={index}
               onClick={() => onColorSelect(item)}
               className={`h-5 w-8 rounded-[5px]
                             hover:border-black border
 
-                          ${selectedColor === item && "border border-black"}
+                          ${selectedColor === item && 'border border-black'}
                             `}
               style={{
                 background: item,

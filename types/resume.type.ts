@@ -40,7 +40,7 @@ export type PersonalInfoType = {
   email?: string | null;
 };
 
-export type StatusType = "archived" | "private" | "public" | undefined;
+export type StatusType = 'archived' | 'private' | 'public' | undefined;
 
 export type ResumeDataType = {
   id?: number;

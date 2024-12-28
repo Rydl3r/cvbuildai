@@ -100,9 +100,7 @@
         "document_document_id_unique": {
           "name": "document_document_id_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "document_id"
-          ]
+          "columns": ["document_id"]
         }
       }
     }
@@ -111,11 +109,7 @@
     "public.status": {
       "name": "status",
       "schema": "public",
-      "values": [
-        "archived",
-        "private",
-        "public"
-      ]
+      "values": ["archived", "private", "public"]
     }
   },
   "schemas": {},

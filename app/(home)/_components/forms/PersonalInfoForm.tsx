@@ -1,23 +1,23 @@
-import React, { useCallback, useEffect } from "react";
-import { Loader } from "lucide-react";
-import { useResumeContext } from "@/context/resume-info-provider";
-import { PersonalInfoType } from "@/types/resume.type";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import PersonalInfoSkeletonLoader from "@/components/skeleton-loader/personal-info-loader";
-import { generateThumbnail } from "@/lib/helper";
-import useUpdateDocument from "@/features/document/use-update-document";
-import { toast } from "@/hooks/use-toast";
+import React, { useCallback, useEffect } from 'react';
+import { Loader } from 'lucide-react';
+import { useResumeContext } from '@/context/resume-info-provider';
+import { PersonalInfoType } from '@/types/resume.type';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import PersonalInfoSkeletonLoader from '@/components/skeleton-loader/personal-info-loader';
+import { generateThumbnail } from '@/lib/helper';
+import useUpdateDocument from '@/features/document/use-update-document';
+import { toast } from '@/hooks/use-toast';
 
 const initialState = {
   id: undefined,
-  firstName: "",
-  lastName: "",
-  jobTitle: "",
-  address: "",
-  phone: "",
-  email: "",
+  firstName: '',
+  lastName: '',
+  jobTitle: '',
+  address: '',
+  phone: '',
+  email: '',
 };
 
 const PersonalInfoForm = (props: { handleNext: () => void }) => {
@@ -75,16 +75,16 @@ const PersonalInfoForm = (props: { handleNext: () => void }) => {
         {
           onSuccess: () => {
             toast({
-              title: "Success",
-              description: "PersonalInfo updated successfully",
+              title: 'Success',
+              description: 'PersonalInfo updated successfully',
             });
             handleNext();
           },
           onError: () => {
             toast({
-              title: "Error",
-              description: "Failed to update personal information",
-              variant: "destructive",
+              title: 'Error',
+              description: 'Failed to update personal information',
+              variant: 'destructive',
             });
           },
         }
@@ -99,92 +99,92 @@ const PersonalInfoForm = (props: { handleNext: () => void }) => {
 
   return (
     <div>
-      <div className="w-full">
-        <h2 className="font-bold text-lg">Personal Information</h2>
-        <p className="text-sm">Get Started with the personal information</p>
+      <div className='w-full'>
+        <h2 className='font-bold text-lg'>Personal Information</h2>
+        <p className='text-sm'>Get Started with the personal information</p>
       </div>
       <div>
         <form onSubmit={handleSubmit}>
           <div
-            className="grid grid-cols-2 
-          mt-5 gap-3"
+            className='grid grid-cols-2 
+          mt-5 gap-3'
           >
             <div>
-              <Label className="text-sm">First Name</Label>
+              <Label className='text-sm'>First Name</Label>
               <Input
-                name="firstName"
+                name='firstName'
                 required
-                autoComplete="off"
-                placeholder=""
-                value={personalInfo?.firstName || ""}
+                autoComplete='off'
+                placeholder=''
+                value={personalInfo?.firstName || ''}
                 onChange={handleChange}
               />
             </div>
             <div>
-              <Label className="text-sm">Last Name</Label>
+              <Label className='text-sm'>Last Name</Label>
               <Input
-                name="lastName"
+                name='lastName'
                 required
-                autoComplete="off"
-                placeholder=""
-                value={personalInfo?.lastName || ""}
+                autoComplete='off'
+                placeholder=''
+                value={personalInfo?.lastName || ''}
                 onChange={handleChange}
               />
             </div>
-            <div className="col-span-2">
-              <Label className="text-sm">Job Title</Label>
+            <div className='col-span-2'>
+              <Label className='text-sm'>Job Title</Label>
               <Input
-                name="jobTitle"
+                name='jobTitle'
                 required
-                autoComplete="off"
-                placeholder=""
-                value={personalInfo?.jobTitle || ""}
+                autoComplete='off'
+                placeholder=''
+                value={personalInfo?.jobTitle || ''}
                 onChange={handleChange}
               />
             </div>
-            <div className="col-span-2">
-              <Label className="text-sm">Address</Label>
+            <div className='col-span-2'>
+              <Label className='text-sm'>Address</Label>
               <Input
-                name="address"
+                name='address'
                 required
-                autoComplete="off"
-                placeholder=""
-                value={personalInfo?.address || ""}
+                autoComplete='off'
+                placeholder=''
+                value={personalInfo?.address || ''}
                 onChange={handleChange}
               />
             </div>
-            <div className="col-span-2">
-              <Label className="text-sm">Phone number</Label>
+            <div className='col-span-2'>
+              <Label className='text-sm'>Phone number</Label>
               <Input
-                name="phone"
+                name='phone'
                 required
-                autoComplete="off"
-                placeholder=""
-                value={personalInfo?.phone || ""}
+                autoComplete='off'
+                placeholder=''
+                value={personalInfo?.phone || ''}
                 onChange={handleChange}
               />
             </div>
-            <div className="col-span-2">
-              <Label className="text-sm">Email</Label>
+            <div className='col-span-2'>
+              <Label className='text-sm'>Email</Label>
               <Input
-                name="email"
+                name='email'
                 required
-                autoComplete="off"
-                placeholder=""
-                value={personalInfo?.email || ""}
+                autoComplete='off'
+                placeholder=''
+                value={personalInfo?.email || ''}
                 onChange={handleChange}
               />
             </div>
           </div>
 
           <Button
-            className="mt-4"
-            type="submit"
+            className='mt-4'
+            type='submit'
             disabled={
-              isPending || resumeInfo?.status === "archived" ? true : false
+              isPending || resumeInfo?.status === 'archived' ? true : false
             }
           >
-            {isPending && <Loader size="15px" className="animate-spin" />}
+            {isPending && <Loader size='15px' className='animate-spin' />}
             Save Changes
           </Button>
         </form>

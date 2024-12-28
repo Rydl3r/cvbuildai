@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
-import useGetDocument from "@/features/document/use-get-document-by-id";
-import { resumeData } from "@/lib/dummy";
-import { ResumeDataType } from "@/types/resume.type";
-import { useParams } from "next/navigation";
-import { createContext, useState, FC, useEffect, useContext } from "react";
+import useGetDocument from '@/features/document/use-get-document-by-id';
+import { ResumeDataType } from '@/types/resume.type';
+import { useParams } from 'next/navigation';
+import { createContext, useState, FC, useEffect, useContext } from 'react';
 
 type ResumeContextType = {
   resumeInfo: ResumeDataType | undefined;
@@ -58,7 +57,7 @@ export const useResumeContext = () => {
   const context = useContext(ResumeInfoContext);
   if (!context) {
     throw new Error(
-      "useCurrentUserContext must be used within a ResumeInfoProvider"
+      'useCurrentUserContext must be used within a ResumeInfoProvider'
     );
   }
   return context;

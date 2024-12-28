@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { api } from "@/lib/hono-rpc";
-import { useQuery } from "@tanstack/react-query";
+import { api } from '@/lib/hono-rpc';
+import { useQuery } from '@tanstack/react-query';
 
 const useGetDocument = (documentId: string, isPublic: boolean = false) => {
   const query = useQuery({
-    queryKey: ["document", documentId],
+    queryKey: ['document', documentId],
     queryFn: async () => {
       const endpoint = !isPublic
-        ? api.document[":documentId"]
-        : api.document.public.doc[":documentId"];
+        ? api.document[':documentId']
+        : api.document.public.doc[':documentId'];
 
       const response = await endpoint.$get({
         param: {
@@ -18,7 +18,7 @@ const useGetDocument = (documentId: string, isPublic: boolean = false) => {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to get document");
+        throw new Error('Failed to get document');
       }
 
       const { data, success } = await response.json();

@@ -100,9 +100,7 @@
         "document_document_id_unique": {
           "name": "document_document_id_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "document_id"
-          ]
+          "columns": ["document_id"]
         }
       }
     },
@@ -165,12 +163,8 @@
           "name": "education_document_id_document_id_fk",
           "tableFrom": "education",
           "tableTo": "document",
-          "columnsFrom": [
-            "document_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["document_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -250,12 +244,8 @@
           "name": "experience_document_id_document_id_fk",
           "tableFrom": "experience",
           "tableTo": "document",
-          "columnsFrom": [
-            "document_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["document_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -322,12 +312,8 @@
           "name": "personal_info_document_id_document_id_fk",
           "tableFrom": "personal_info",
           "tableTo": "document",
-          "columnsFrom": [
-            "document_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["document_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -371,12 +357,8 @@
           "name": "skills_document_id_document_id_fk",
           "tableFrom": "skills",
           "tableTo": "document",
-          "columnsFrom": [
-            "document_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["document_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -389,11 +371,7 @@
     "public.status": {
       "name": "status",
       "schema": "public",
-      "values": [
-        "archived",
-        "private",
-        "public"
-      ]
+      "values": ["archived", "private", "public"]
     }
   },
   "schemas": {},

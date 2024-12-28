@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { api } from "@/lib/hono-rpc";
-import { useQuery } from "@tanstack/react-query";
+import { api } from '@/lib/hono-rpc';
+import { useQuery } from '@tanstack/react-query';
 
 const useGetDocuments = (isTrash: boolean = false) => {
-  const queryKey = isTrash ? ["trashDocuments"] : ["documents"];
+  const queryKey = isTrash ? ['trashDocuments'] : ['documents'];
   const query = useQuery({
     queryKey,
     queryFn: async () => {
@@ -12,7 +12,7 @@ const useGetDocuments = (isTrash: boolean = false) => {
       const response = await endpoint.$get();
 
       if (!response.ok) {
-        throw new Error("Failed to get documents");
+        throw new Error('Failed to get documents');
       }
 
       const { data, success } = await response.json();

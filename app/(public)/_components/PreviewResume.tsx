@@ -1,12 +1,12 @@
-import React from "react";
-import { INITIAL_THEME_COLOR } from "@/lib/helper";
-import { ResumeDataType } from "@/types/resume.type";
-import { cn } from "@/lib/utils";
-import PersonalInfo from "@/components/preview/PersonalInfo";
-import SummaryPreview from "@/components/preview/SummaryPreview";
-import EducationPreview from "@/components/preview/EducationPreview";
-import ExperiencePreview from "@/components/preview/ExperiencePreview";
-import SkillPreview from "@/components/preview/SkillPreview";
+import React from 'react';
+import { INITIAL_THEME_COLOR } from '@/lib/helper';
+import { ResumeDataType } from '@/types/resume.type';
+import { cn } from '@/lib/utils';
+import PersonalInfo from '@/components/preview/PersonalInfo';
+import SummaryPreview from '@/components/preview/SummaryPreview';
+import EducationPreview from '@/components/preview/EducationPreview';
+import ExperiencePreview from '@/components/preview/ExperiencePreview';
+import SkillPreview from '@/components/preview/SkillPreview';
 
 const PreviewResume = (props: {
   isLoading: boolean;

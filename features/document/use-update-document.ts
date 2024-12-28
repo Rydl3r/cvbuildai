@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { toast } from "@/hooks/use-toast";
-import { api } from "@/lib/hono-rpc";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { InferRequestType, InferResponseType } from "hono";
-import { useParams } from "next/navigation";
+import { toast } from '@/hooks/use-toast';
+import { api } from '@/lib/hono-rpc';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { InferRequestType, InferResponseType } from 'hono';
+import { useParams } from 'next/navigation';
 
 type ResponseType = InferResponseType<
-  (typeof api.document.update)[":documentId"]["$patch"]
+  (typeof api.document.update)[':documentId']['$patch']
 >;
 type RequestType = InferRequestType<
-  (typeof api.document.update)[":documentId"]["$patch"]
->["json"];
+  (typeof api.document.update)[':documentId']['$patch']
+>['json'];
 
 const useUpdateDocument = () => {
   const param = useParams();
@@ -21,7 +21,7 @@ const useUpdateDocument = () => {
 
   const mutation = useMutation<ResponseType, Error, RequestType>({
     mutationFn: async (json) => {
-      const response = await api.document.update[":documentId"]["$patch"]({
+      const response = await api.document.update[':documentId']['$patch']({
         param: {
           documentId: documentId,
         },
@@ -31,14 +31,14 @@ const useUpdateDocument = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: ["document", documentId],
+        queryKey: ['document', documentId],
       });
     },
     onError: () => {
       toast({
-        title: "Error",
-        description: "Failed to update document",
-        variant: "destructive",
+        title: 'Error',
+        description: 'Failed to update document',
+        variant: 'destructive',
       });
     },
   });
