@@ -13,7 +13,6 @@ export const generateThumbnail = async () => {
     'resume-preview-id'
   ) as HTMLElement;
   if (!resumeElement) {
-    console.error('Resume preview element not found');
     return;
   }
 

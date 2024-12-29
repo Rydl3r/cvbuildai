@@ -50,7 +50,6 @@ const Download = (props: {
       }
       pdf.save(fileName);
     } catch (error) {
-      console.error('Error generating PDF:', error);
       toast({
         title: 'Помилка',
         description: 'Помилка при створенні PDF:',

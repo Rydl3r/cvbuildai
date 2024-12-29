@@ -23,8 +23,9 @@ const PROMPT = `Враховуючи назву посади "{jobTitle}",
   форматі HTML, які підкреслюють мої ключові
   навички, відповідні технології та значні
    внески в цій ролі. Не включайте саму назву
-    посади у вихідні дані. Надайте лише пункти
-     у вигляді ненумерованого списку <li>.`;
+    посади у вихідні дані. Використовуй лише українську мову. Надайте лише пункти
+     у вигляді ненумерованого списку <li>. 
+     Відповідь надай у форматі об'єкту з ключем description, а значення - рядок з елементами <li>`;
 
 const RichTextEditor = (props: {
   jobTitle: string | null;
@@ -36,7 +37,7 @@ const RichTextEditor = (props: {
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState(initialValue || '');
 
-  const GenerateSummaryFromAI = async () => {
+  const generateSummaryFromAI = async () => {
     try {
       if (!jobTitle) {
         toast({
@@ -49,10 +50,10 @@ const RichTextEditor = (props: {
       const prompt = PROMPT.replace('{jobTitle}', jobTitle);
       const result = await AIChatSession.sendMessage(prompt);
       const responseText = await result.response.text();
-      const validJsonArray = JSON.parse(`[${responseText}]`);
+      const parsedResponse = JSON.parse(responseText);
 
-      setValue(validJsonArray?.[0]?.bulletPoints);
-      onEditorChange(validJsonArray?.[0]?.bulletPoints);
+      setValue(parsedResponse?.description);
+      onEditorChange(parsedResponse?.description);
     } catch (error) {
       toast({
         title: 'Не вдалося згенерувати резюме',
@@ -75,7 +76,7 @@ const RichTextEditor = (props: {
           type='button'
           className='gap-1'
           disabled={loading}
-          onClick={() => GenerateSummaryFromAI()}
+          onClick={generateSummaryFromAI}
         >
           <>
             <Sparkles size='15px' className='text-purple-500' />
