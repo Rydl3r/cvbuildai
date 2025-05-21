@@ -35,7 +35,7 @@ export default function Home() {
           <div className='w-full h-[400px] md:h-[500px] lg:h-[600px] shadow-lg bg-background'>
             <div className='relative w-full h-full'>
               <Image
-                src='/images/background.png'
+                src='/images/resume_example.png'
                 alt='Дашборд'
                 fill
                 className='object-contain w-full h-full transition hover:scale-105'
